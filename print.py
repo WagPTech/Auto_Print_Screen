@@ -1,9 +1,13 @@
 import pyautogui,time
 from datetime import datetime
+region = (957,170,1920,632)
+size = (0,0,963,500)
+save_dir = 'f:/print/screenshot'
+interval = 10
 while(True):
-	local = datetime.now() #data e hora atual
-	foto=pyautogui.screenshot(region=(957, 170, 1920, 632)) #Área da tela que será registrada em pixels
-	foto2=foto.crop((0,0,963,500)) #Tamanho da imagem em pixels
-	foto2.save('f:/print/foto'+local.strftime("%m%d%Y_%H%M%S")+'.png') #Definindo local e salvando a imagem
-	print('Salvando: f:/print/foto'+local.strftime("%m%d%Y_%H%M%S")+'.png')
-	time.sleep(10) # Intervalo entre os prints
+	localtime = datetime.now() #current time
+	screenshot=pyautogui.screenshot(region) #Screen area registered, in pixels
+	screenshot2=screenshot.crop(size) #Image size, in pixels
+	screenshot2.save(savedir+local.strftime("%m%d%Y_%H%M%S")+'.png') #defining save directory, extension and saving image
+	print('Saving: '+savedir+local.strftime("%m%d%Y_%H%M%S")+'.png')
+	time.sleep(interval) # screenshot interval
